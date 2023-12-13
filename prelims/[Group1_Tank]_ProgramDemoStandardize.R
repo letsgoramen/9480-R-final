@@ -1,7 +1,6 @@
 # Initialize a list where student data will be contained within vectors.
 # Vectors shall contain the following: ID Num, Name, and Status
-studentList <- list(c(2223175, "Rohit Tank", "Present"))  
-# from student_list to studentList
+studentList <- list(c(2223175, "Rohit Tank", "Present"))
 
 # The edit_student_attendance allows for the modification of a student's attendance remark
 # based on their assigned student ID. It iterates through the student list and updates the
@@ -11,16 +10,15 @@ studentList <- list(c(2223175, "Rohit Tank", "Present"))
 # unchanged list.
 edit_student_attendance <- function(id, new_status) {
   for (i in 1:length(studentList)) {
-    student <- studentList[[i]]
+    student = studentList[[i]]
     if (student[1] == id) {
       student[3] <- new_status
-      studentList[[i]] <- student
+      studentList[[i]] = student
       cat("Attendance updated successfully.")
       return(studentList)
     }
   }
 }
-
 
 # Function to add a student to the studentList list data structure.
 # The function accepts an id number and student name and creates a vector
@@ -28,7 +26,7 @@ edit_student_attendance <- function(id, new_status) {
 # studentList list.
 add_student <- function(id, student_name) {
   student <- c(id, student_name, "Present")
-  studentList[[length(studentList) + 1]] <- student
+  studentList[[length(studentList) + 1]] = student
   cat("Student added successfully.")
   return(studentList)
 }
@@ -47,7 +45,7 @@ display_attend <- function() {
   )
   
   # Get the number of rows in data of student
-  num_students <- nrow(student_data)
+  num_students = nrow(student_data)
   
   # Concatenate the Class Attendance and Current Date Function
   heading <- paste("<-------- CLASS ATTENDANCE-", Sys.Date(),"-------->\n")
@@ -76,7 +74,6 @@ display_attend <- function() {
 # While loop where options for the program are displayed and functions
 # of the program are invoked depending on the user's chosen option.
 while (TRUE) {
-
   cat("Attendance Monitoring System\n")
   cat("1. Add a Student\n")
   cat("2. Edit Student Attendance\n") 
@@ -87,11 +84,9 @@ while (TRUE) {
   
   # Add a Student Option
   if (choice == 1) {
-    
     # Validate Entered ID Number
     while(TRUE){
       id <- readline("Enter student ID: ")
-      
       
       if (is.na(as.integer(id))) {
         cat("ID must be numeric!")
@@ -99,7 +94,7 @@ while (TRUE) {
         id <- as.integer(id)  # Convert id to an integer
         does_exist <- FALSE
         for (i in 1:length(studentList)) {
-          student <- studentList[[i]]
+          student = studentList[[i]]
           if (student[1] == id) {
             does_exist <- TRUE
             break
@@ -118,49 +113,49 @@ while (TRUE) {
     studentList <- add_student(id, name)
     
   } else if (choice == 2) {
-      # Edit Student Attendance choice prompts the student's ID and the appropriate status
-      while (TRUE) {
-        id <- readline("Enter student ID to edit attendance: ")
-        
-        id <- as.integer(id)  # Convert id to an integer
-        does_exist <- FALSE
-        for (i in 1:length(studentList)) {
-            student <- studentList[[i]]
-            if (student[1] == id) {
-              does_exist <- TRUE
-              break
-            }
-        }
-          
-        if (!does_exist) {
-          cat("Student ID already exists!")
-        } else {
+    # Edit Student Attendance choice prompts the student's ID and the appropriate status
+    while (TRUE) {
+      id <- readline("Enter student ID to edit attendance: ")
+      
+      id <- as.integer(id)  # Convert id to an integer
+      does_exist <- FALSE
+      for (i in 1:length(studentList)) {
+        student = studentList[[i]]
+        if (student[1] == id) {
+          does_exist <- TRUE
           break
         }
       }
-    
-      # Prompt for new attendance status and validate it
-      while (TRUE) {
-        new_status <- readline("Enter new attendance status (Absent, Tardy, Present): ")
-        if (new_status %in% c("Absent", "Tardy", "Present")) {
-          break  # Input is valid, exits the loop
-        } else {
-          cat("Invalid input. Please enter one of: Absent, Tardy, Present.\n")
-        }
+      
+      if (!does_exist) {
+        cat("Student ID already exists!")
+      } else {
+        break
       }
+    }
     
-      studentList <- edit_student_attendance(id, new_status)
+    # Prompt for new attendance status and validate it
+    while (TRUE) {
+      new_status <- readline("Enter new attendance status (Absent, Tardy, Present): ")
+      if (new_status %in% c("Absent", "Tardy", "Present")) {
+        break  # Input is valid, exits the loop
+      } else {
+        cat("Invalid input. Please enter one of: Absent, Tardy, Present.\n")
+      }
+    }
+    
+    studentList <- edit_student_attendance(id, new_status)
     
   } else if (choice == 3) {
-      display_attend()
+    display_attend()
     
     # Exit Program
   } else if (choice == 4) {
-      cat("Program Exited")
-      break
+    cat("Program Exited")
+    break
     
     # Display Error message when opt
   } else {
-      cat("Invalid Choice! Make sure to choose an option from those provided.")
+    cat("Invalid Choice! Make sure to choose an option from those provided.")
   }
 } # End of While Loop
