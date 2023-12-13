@@ -120,6 +120,7 @@ Inline code comments should have 5 spaces away from the line of code and should 
 ```R
 # This dataset contains different kinds of animals and size types
   animals <- data.frame(
+```
 
 ### Function Documentation
 The existing code adheres to the following function documentation conventions. Typically, we write the function first and then document it. To use this documentation style, place the cursor somewhere within the function definition and follow the format below
