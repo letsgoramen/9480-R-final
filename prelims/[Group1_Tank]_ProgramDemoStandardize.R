@@ -1,6 +1,6 @@
 # Initialize a list where student data will be contained within vectors.
 # Vectors shall contain the following: ID Num, Name, and Status
-studentList <- list(c(2223175, "Rohit Tank", "Present"))
+student_list <- list(c(2223175, "Rohit Tank", "Present"))
 
 # The edit_student_attendance allows for the modification
 # of a student's attendance remark
@@ -11,39 +11,39 @@ studentList <- list(c(2223175, "Rohit Tank", "Present"))
 # student is not found, the function prints an error message and returns the
 # unchanged list.
 edit_student_attendance <- function(id, new_status) {
-  for (i in seq_along(studentList)) {
-    student <- studentList[[i]]     # retrieve student information ;
+  for (i in seq_along(student_list)) {
+    student <- student_list[[i]]     # retrieve student information ;
     if (student[1] == id) {
       student[3] <- new_status     # update attendance status ;
-      studentList[[i]] <- student
+      student_list[[i]] <- student
       cat("Attendance updated successfully.")
-      return(studentList)
+      return(student_list)
     }
   }
 }
 
-# Function to add a student to the studentList list data structure.
+# Function to add a student to the student_list list data structure.
 # The function accepts an id number and student name and creates a vector
 # using the provided student details. This vector is then added to the
-# studentList list.
+# student_list list.
 add_student <- function(id, student_name) {
   student <- c(id, student_name, "Present")     # create a student vector ;
-  studentList[[length(studentList) + 1]] <- student
+  student_list[[length(student_list) + 1]] <- student
   cat("Student added successfully.")
-  return(studentList)
+  return(student_list)
 }
 
 # Function to display student attendance with its corresponding
 # ID number, Name, and remark. This includes the current date
 # of the current day. The function takes the data of the
-# 'studentList' vector and then converts it to a data frame
+# 'student_list' vector and then converts it to a data frame
 # and then finally formats and displays it in a tabular format
 display_attend <- function() {
   # Data of Added Students
   student_data <- data.frame(
-    ID_Num = sapply(studentList, "[[", 1),
-    Name = sapply(studentList, "[[", 2),
-    Status = sapply(studentList, "[[", 3)
+    ID_Num = sapply(student_list, "[[", 1),
+    Name = sapply(student_list, "[[", 2),
+    Status = sapply(student_list, "[[", 3)
   )
 
   # Get the number of rows in data of student
@@ -95,8 +95,8 @@ while (TRUE) {
       } else {
         id <- as.integer(id)     # Convert id to an integer ;
         does_exist <- FALSE
-        for (i in seq_along(studentList)) {
-          student <- studentList[[i]]
+        for (i in seq_along(student_list)) {
+          student <- student_list[[i]]
           if (student[1] == id) {
             does_exist <- TRUE
             break
@@ -112,7 +112,7 @@ while (TRUE) {
     }
 
     name <- readline("Enter student name: ")
-    studentList <- add_student(id, name)
+    student_list <- add_student(id, name)
 
   } else if (choice == 2) {
     # Edit Student Attendance choice prompts the student's ID & appropriate status
@@ -121,8 +121,8 @@ while (TRUE) {
 
       id <- as.integer(id)     # Convert id to an integer ;
       does_exist <- FALSE
-      for (i in seq_along(studentList)) {
-        student <- studentList[[i]]
+      for (i in seq_along(student_list)) {
+        student <- student_list[[i]]
         if (student[1] == id) {
           does_exist <- TRUE
           break
@@ -146,7 +146,7 @@ while (TRUE) {
       }
     }
 
-    studentList <- edit_student_attendance(id, new_status)
+    student_list <- edit_student_attendance(id, new_status)
 
   } else if (choice == 3) {
     display_attend()
