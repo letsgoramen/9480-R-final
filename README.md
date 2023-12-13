@@ -121,3 +121,19 @@ Inline code comments should have 5 spaces away from the line of code and should 
 # This dataset contains different kinds of animals and size types
   animals <- data.frame(
 
+### Function Documentation
+The existing code adheres to the following function documentation conventions. Typically, we write the function first and then document it. To use this documentation style, place the cursor somewhere within the function definition and follow the format below
+
+**Sample Conforming to the Modified Standard:**
+```R
+# edit_student_attendance <- function(id, new_status) {
+  for (i in seq_along(student_list)) {
+    student <- student_list[[i]]     # retrieve student information ;
+    if (student[1] == id) {
+      student[3] <- new_status     # update attendance status ;
+      student_list[[i]] <- student
+      cat("Attendance updated successfully.")
+      return(student_list)
+    }
+  }
+}
