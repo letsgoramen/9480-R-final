@@ -1,4 +1,12 @@
-#DEBUGGING
+#  Copyright (c) 2023 Group1_R
+
+#' @author Christian Keith Ducat
+
+# File Description: Debugging R Program
+# This program demonstrates basic mathematical operations and includes functions
+# for incrementing, decrementing, reciprocating, and calling these functions in a sequence.
+
+
 
 # Increment 'a' by 1
     inc <- function(a) 

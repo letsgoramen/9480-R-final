@@ -1,4 +1,14 @@
+#  Copyright (c) 2023 Group1_R
 
+#' @author Rohit Tank
+
+# File Description: Profiling in R
+# This program includes functions to generate a random matrix, perform matrix multiplication, 
+# calculate the sum of squares of matrix elements, and run the main program. 
+# The main program generates random matrices, performs matrix multiplication, 
+# and calculates the sum of squares of matrix elements. It also includes an iterative algorithm. 
+# After running the main program, the script runs profiling, analyzes the profile data, 
+# and prints the summary.
 
 # Function to generate a random matrix
     generate_random_matrix <- function(rows, cols) 

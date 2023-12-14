@@ -1,9 +1,18 @@
-#' 
-#' @param rows 
-#' @param cols 
-#' @return 
-#' @author ethan
-#' @export
+#  Copyright (c) 2023 Group1_R
+
+#' @author Ethan Mina
+
+# File Description:
+# This program defines functions to generate random matrices, perform matrix multiplication,
+# calculate the sum of squares of matrix elements, and run the main program. The main program
+# generates random matrices, performs matrix multiplication, calculates the sum of squares,
+# and demonstrates an iterative algorithm.
+
+
+#' @param rows The number of rows for the matrix
+#' @param cols The number of columns for the matrix
+#' @return A random matrix of size rows x cols
+#' @author Ethan
   generate_random_matrix <- function(rows, cols) 
   {
       matrix(runif(rows * cols), nrow = rows, ncol = cols);

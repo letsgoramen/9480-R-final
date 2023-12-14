@@ -1,3 +1,15 @@
+#  Copyright (c) 2023 Group1_R
+
+#' @author Dean Nobleza
+
+# File Description:
+# This program creates a dataset of students, including their names, ages, and grades.
+# It then displays the dataset, imports the ggplot2 package, and creates a bar plot
+# showing the average grades of students.
+
+# Necessary Libraries
+library(ggplot2);
+
 # Create a students dataset
     students <- data.frame(
       Name = c("Rohit", "Shanthal", "Melody", "Ethan", "Christian"),

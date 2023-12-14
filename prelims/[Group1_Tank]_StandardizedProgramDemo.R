@@ -1,6 +1,6 @@
-# Copyright (c) 2023 Group1_R
+#  Copyright (c) 2023 Group1_R
 
-# Author : 9480-Group1_R
+#' @author 9480-Group1_R
 
 # File Description: Attendance Monitoring System in R
 # This program manages student attendance by allowing users to add students, edit their attendance status,
