@@ -26,7 +26,7 @@
     reciprocate <- function(a) 
     {
       if (a == 0)
-        cat("Division by zero will occur");
+        stop("Division by zero will occur");
       a <- 1 / a;
       return(a);
     }

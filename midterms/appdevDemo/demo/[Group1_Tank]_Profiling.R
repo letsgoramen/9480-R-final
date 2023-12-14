@@ -20,7 +20,7 @@
     matrix_multiply <- function(mat1, mat2) 
     {
       if (ncol(mat1) != nrow(mat2)) {
-        cat("Number of columns in the first matrix must be equal to the number of rows in the second matrix.");
+        stop("Number of columns in the first matrix must be equal to the number of rows in the second matrix.");
       }
       return(mat1 %*% mat2);
     }
