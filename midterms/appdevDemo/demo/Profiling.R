@@ -1,47 +1,59 @@
-#PROFILING
 
-# Load the 'utils' package
-library(utils)
 
-# Function 1: Double the sum of a and b
-addition_multiplication <- function(a, b) {
-  result <- a + b
-  result <- result * 2
-  return(result)
+# Function to generate a random matrix
+generate_random_matrix <- function(rows, cols) {
+  matrix(runif(rows * cols), nrow = rows, ncol = cols)
 }
 
-# Function 2: Divide the difference of a and b
-subtraction_division <- function(a, b) {
-  result <- a - b
-  result <- result / 2
-  return(result)
-}
-
-# Function 3: Main function to profile
-main_function <- function(n) {
-  total_result <- 0
-  for (i in 1:n) {
-    function1_result <- addition_multiplication(i, i + 1)
-    function2_result <- subtraction_division(i, i + 1)
-    total_result <- total_result + (function1_result + function2_result)
+# Function to perform matrix multiplication
+matrix_multiply <- function(mat1, mat2) {
+  if (ncol(mat1) != nrow(mat2)) {
+    stop("Number of columns in the first matrix must be equal to the number of rows in the second matrix.")
   }
-  return(total_result)
+  return(mat1 %*% mat2)
 }
 
-# Start profiling
-data = "profile_data.prof"  # output file  containing the data being processed
+# Function to calculate the sum of squares of matrix elements
+sum_of_squares <- function(mat) {
+  return(sum(mat^2))
+}
+
+# Function to run the main program
+main_function <- function() {
+  # Main program
+  set.seed(123)  # Set seed for reproducibility
+
+  # Generate random matrices
+  matrix_size <- 100
+  A <- generate_random_matrix(matrix_size, matrix_size)
+  B <- generate_random_matrix(matrix_size, matrix_size)
+
+  # Perform matrix multiplication
+  C <- matrix_multiply(A, B)
+
+  # Calculate the sum of squares of matrix elements
+  result <- sum_of_squares(C)
+
+  # Iterative algorithm
+  iterations <- 1000
+  for (i in 1:iterations) {
+    A <- matrix_multiply(A, B)
+    B <- generate_random_matrix(matrix_size, matrix_size)
+  }
+
+  # Print the final result
+  cat("Final Result:", result, "\n")
+}
+
+data <- "profile_data.prof"
+
 Rprof(data)
 
-# Execution of main_function
-n <- 100000
-result <- main_function(n)
+# Run the main program
+main_function()
 
-# Stop profiling
 Rprof()
 
 # Analyze the profile data
 summary_data <- summaryRprof(data) # summarizes the retrieved data
 print(summary_data)
-
-#profiling-efficient way of showing which functions takes the most time to execute and needs
-#self-time()
