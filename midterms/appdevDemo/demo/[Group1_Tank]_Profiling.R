@@ -34,7 +34,7 @@ sum_of_squares <- function(mat)
 main_function <- function()
 {
   # Main program
-  set.seed(123);     # Set seed for reproducibility
+  set.seed(123);     # Set seed for reproducibility;
 
   # Generate random matrices
   matrix_size <- 100;
