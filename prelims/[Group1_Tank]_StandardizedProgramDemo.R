@@ -10,7 +10,8 @@
 # attendance remark is updated, and the modified list is returned. If the
 # student is not found, the function prints an error message and returns the
 # unchanged list.
-    edit_student_attendance <- function(id, new_status) {
+    edit_student_attendance <- function(id, new_status) 
+    {
       for (i in seq_along(student_list)) {
         student <- student_list[[i]]     # retrieve student information ;
         if (student[1] == id) {
@@ -26,7 +27,8 @@
 # The function accepts an id number and student name and creates a vector
 # using the provided student details. This vector is then added to the
 # student_list list.
-    add_student <- function(id, student_name) {
+    add_student <- function(id, student_name)
+    {
       student <- c(id, student_name, "Present")     # create a student vector ;
       student_list[[length(student_list) + 1]] <- student
       cat("Student added successfully.")
@@ -38,7 +40,8 @@
 # of the current day. The function takes the data of the
 # 'student_list' vector and then converts it to a data frame
 # and then finally formats and displays it in a tabular format
-    display_attend <- function() {
+    display_attend <- function() 
+    {
       # Data of Added Students
       student_data <- data.frame(
         ID_Num = sapply(student_list, "[[", 1),
@@ -90,22 +93,28 @@
         while (TRUE) {
           id <- readline("Enter student ID: ")
 
-          if (is.na(as.integer(id))) {
+          if (is.na(as.integer(id))) 
+          {
             cat("ID must be numeric!")
-          } else {
+          } else 
+          {
             id <- as.integer(id)     # Convert id to an integer ;
             does_exist <- FALSE
-            for (i in seq_along(student_list)) {
+            for (i in seq_along(student_list)) 
+            {
               student <- student_list[[i]]
-              if (student[1] == id) {
+              if (student[1] == id) 
+              {
                 does_exist <- TRUE
                 break
               }
             }
 
-            if (!does_exist) {
+            if (!does_exist) 
+            {
               break
-            } else {
+            } else 
+            {
               cat("Student ID already exists!")
             }
           }
@@ -114,50 +123,61 @@
         name <- readline("Enter student name: ")
         student_list <- add_student(id, name)
 
-      } else if (choice == 2) {
+      } else if (choice == 2) 
+      {
         # Edit Student Attendance choice prompts the student's ID & appropriate status
         while (TRUE) {
           id <- readline("Enter student ID to edit attendance: ")
 
           id <- as.integer(id)     # Convert id to an integer ;
           does_exist <- FALSE
-          for (i in seq_along(student_list)) {
+          for (i in seq_along(student_list)) 
+          {
             student <- student_list[[i]]
-            if (student[1] == id) {
+            if (student[1] == id) 
+            {
               does_exist <- TRUE
               break
             }
           }
 
-          if (!does_exist) {
+          if (!does_exist) 
+          {
             cat("Student ID already exists!")
-          } else {
+          } else 
+          {
             break
           }
         }
 
         # Prompt for new attendance status and validate it
-        while (TRUE) {
+        while (TRUE)
+        {
           new_status <- readline("Enter new attendance status (Absent, Tardy, Present): ")
-          if (new_status %in% c("Absent", "Tardy", "Present")) {
+          if (new_status %in% c("Absent", "Tardy", "Present")) 
+          {
             break     # Input is valid, exits the loop ;
-          } else {
+          } else 
+          {
             cat("Invalid input. Please enter one of: Absent, Tardy, Present.\n")
           }
         }
 
         student_list <- edit_student_attendance(id, new_status)
 
-      } else if (choice == 3) {
+      }else if (choice == 3) 
+      {
         display_attend()
 
         # Exit Program
-      } else if (choice == 4) {
+      } else if (choice == 4) 
+      {
         cat("Program Exited")
         break
 
         # Display Error message when opt
-      } else {
+      } else 
+      {
         cat("Invalid Choice! Make sure to choose an option from those provided.")
       }
     } # End of While Loop
