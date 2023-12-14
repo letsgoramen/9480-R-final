@@ -14,7 +14,7 @@
 #' @author Ethan
 generate_random_matrix <- function(rows, cols)
 {
-  matrix(runif(rows * cols), nrow = rows, ncol = cols);
+  matrix(runif(rows * cols), nrow = rows, ncol = cols);     # generate random matrix;
 }
 
 matrix_multiply <- function(mat1, mat2)
@@ -22,13 +22,13 @@ matrix_multiply <- function(mat1, mat2)
   if (ncol(mat1) != nrow(mat2)) {
       stop("Number of columns in the first matrix must be equal to the number of rows in the second matrix.");
   }
-  return(mat1 %*% mat2);
+  return(mat1 %*% mat2);     # return the result of matrix multiplication;
 }
 
 # Function to calculate the sum of squares of matrix elements
 sum_of_squares <- function(mat)
 {
-  return(sum(mat^2));
+  return(sum(mat^2));     # return the sum of squares of matrix elements;
 }
 
 # Function to run the main program
