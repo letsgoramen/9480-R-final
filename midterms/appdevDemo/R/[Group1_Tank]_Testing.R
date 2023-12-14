@@ -3,11 +3,11 @@
 #' @author Melody Jane Ang
 
 # File Description:
-# This program demonstrates matrix multiplication in R.
-# It defines functions to generate a random matrix, perform matrix multiplication, 
-# calculate the sum of squares of matrix elements, and run the main program.
-# The main program sets a seed for reproducibility, generates random matrices,
-# performs matrix multiplication, calculates the sum of squares, and prints the final result.
+#  This program demonstrates matrix multiplication in R.
+#  It defines functions to generate a random matrix, perform matrix multiplication, 
+#  calculate the sum of squares of matrix elements, and run the main program.
+#  The main program sets a seed for reproducibility, generates random matrices,
+#  performs matrix multiplication, calculates the sum of squares, and prints the final result.
 
 
 # Sample Program
