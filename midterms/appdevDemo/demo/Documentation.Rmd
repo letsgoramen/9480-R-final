@@ -14,15 +14,15 @@ We have a dataset that contains information about students, including their name
 
 ```{r}
 # Sample data
-students <- data.frame(
-  Name = c("Alice", "Bob", "Charlie", "David", "Eve"),
-  Course = c("BSIT", "BSCS", "BSIT", "BMMA", "BSCS"),
-  Year_Level = c(2, 3, 1, 4, 2),
-  Absences = c(3, 2, 5, 1, 4)
-)
+    students <- data.frame(
+      Name = c("Alice", "Bob", "Charlie", "David", "Eve"),
+      Course = c("BSIT", "BSCS", "BSIT", "BMMA", "BSCS"),
+      Year_Level = c(2, 3, 1, 4, 2),
+      Absences = c(3, 2, 5, 1, 4)
+    )
 
 # Show the first few records
-head(students)
+    head(students)
 ```
 
 ## Graph View
@@ -30,14 +30,14 @@ head(students)
 This shows a graph view of the student data, including their number of absences.
 ```{r}
 # Load the necessary packages
-library(ggplot2)
+    library(ggplot2)
 
 # Create a bar graph showing the number of absences
-ggplot(students, aes(x = Name, y = Absences, fill = Course)) +
-  geom_bar(stat = "identity") +
-  labs(title = "Number of Absences by Student and Course", x = "Student Name", y = "Number of Absences") +
-  scale_fill_brewer(palette = "Set1") +
-  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+    ggplot(students, aes(x = Name, y = Absences, fill = Course)) +
+      geom_bar(stat = "identity") +
+      labs(title = "Number of Absences by Student and Course", x = "Student Name", y = "Number of Absences") +
+      scale_fill_brewer(palette = "Set1") +
+      theme(axis.text.x = element_text(angle = 45, hjust = 1))
 
 ```
 
