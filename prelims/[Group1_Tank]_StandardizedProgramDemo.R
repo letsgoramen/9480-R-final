@@ -1,3 +1,15 @@
+# Copyright (c) 2023 Group1_R
+
+# Author : 9480-Group1_R
+
+# File Description: Attendance Monitoring System in R
+# This program manages student attendance by allowing users to add students, edit their attendance status,
+# and display the current attendance records in a tabular format. The program uses a list to store student
+# data, including ID number, name, and attendance status. It features a while loop menu that prompts users
+# to choose between various options such as adding a student, editing attendance, displaying attendance,
+# or exiting the program.
+
+
 # Initialize a list where student data will be contained within vectors.
 # Vectors shall contain the following: ID Num, Name, and Status
     student_list <- list(c(2223175, "Rohit Tank", "Present"));
@@ -14,10 +26,10 @@
     {
       for (i in seq_along(student_list)) 
       {
-        student <- student_list[[i]];     # retrieve student information 
+        student <- student_list[[i]];     # retrieve student information; 
         if (student[1] == id) 
         {
-          student[3] <- new_status;    # update attendance status 
+          student[3] <- new_status;    # update attendance status;
           student_list[[i]] <- student;
           cat("Attendance updated successfully.");
           return(student_list);
@@ -104,7 +116,7 @@
             cat("ID must be numeric!");
           } else 
           {
-            id <- as.integer(id);     # Convert id to an integer 
+            id <- as.integer(id);     # Convert id to an integer; 
             does_exist <- FALSE;
             for (i in seq_along(student_list)) 
             {
@@ -136,7 +148,7 @@
         {
           id <- readline("Enter student ID to edit attendance: ");
 
-          id <- as.integer(id);     # Convert id to an integer 
+          id <- as.integer(id);     # Convert id to an integer;
           does_exist <- FALSE;
           for (i in seq_along(student_list)) 
           {
@@ -163,7 +175,7 @@
           new_status <- readline("Enter new attendance status (Absent, Tardy, Present): ");
           if (new_status %in% c("Absent", "Tardy", "Present")) 
           {
-            break;     # Input is valid, exits the loop 
+            break;     # Input is valid, exits the loop; 
           } else 
           {
             cat("Invalid input. Please enter one of: Absent, Tardy, Present.\n");
@@ -187,4 +199,4 @@
       {
         cat("Invalid Choice! Make sure to choose an option from those provided.");
       }
-    } # End of While Loop
+    }     # End of While Loop;
