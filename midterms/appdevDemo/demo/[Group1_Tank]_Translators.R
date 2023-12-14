@@ -6,11 +6,11 @@
     )
 
 # Display the dataset
-    print(students)
-    View(students)
+    print(students);
+    View(students);
 
 # import ggplot2 package
-    library(ggplot2)
+    library(ggplot2);
 
 # Create a bar plot of average grades by student
     ggplot(students, aes(x = Name, y = Grade, fill = Name)) +
@@ -18,4 +18,4 @@
       labs(title = "Average Grades of Students",
           x = "Student Name",
           y = "Grade") +
-      theme_classic()
+      theme_classic();

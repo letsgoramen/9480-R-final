@@ -35,6 +35,9 @@
           return(student_list);
         }
       }
+        # If the student is not found, issue a warning
+        warning("Student not found. No changes made to attendance.");
+        return(student_list);
     }
 
 # Function to add a student to the student_list list data structure.
@@ -90,6 +93,8 @@
         cat(formatted_rows);
       }
     }
+     
+
 
 # While loop where options for the program are displayed and functions
 # of the program are invoked depending on the user's chosen option.
