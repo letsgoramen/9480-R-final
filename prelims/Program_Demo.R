@@ -154,7 +154,7 @@ while (TRUE)
 
       if (!does_exist) 
       {
-        cat("Student does not exist!")
+        cat("Studenxt does not exist!")
       }
       else
       {
