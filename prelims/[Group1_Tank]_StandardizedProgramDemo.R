@@ -138,7 +138,7 @@
               break;
             } else 
             {
-              cat("Student ID already exists!");
+              cat("Student IDjj already exists!");
             }
           }
         }
