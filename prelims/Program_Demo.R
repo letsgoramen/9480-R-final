@@ -108,7 +108,7 @@ while (TRUE) {
         if (!does_exist) {
           break
         } else {
-          cat("Student ID already exists!")
+          cat("Student does not exists!")
         }
       }
     }
