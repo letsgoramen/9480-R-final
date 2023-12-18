@@ -1,6 +1,6 @@
 # Initialize a list where student data will be contained within vectors.
 # Vectors shall contain the following: ID Num, Name, and Status
-student_list <- list(c(2223175, "Rohit Tank", "Present”));
+student_list <- list(c(2223175, "Rohit Tank", "Present"))
 
 # The edit_student_attendance allows for the modification of a student's attendance remark
 # based on their assigned student ID. It iterates through the student list and updates the
@@ -10,7 +10,7 @@ student_list <- list(c(2223175, "Rohit Tank", "Present”));
 # unchanged list.
 edit_student_attendance <- function(id, new_status)
 {
-  for (i in seq_along(student_list)) 
+  for (i in 1:length(student_list)) 
   {
     student <- student_list[[i]];
     if (student[1] == id) 
@@ -28,13 +28,9 @@ edit_student_attendance <- function(id, new_status)
 # The function accepts an id number and student name and creates a vector
 # using the provided student details. This vector is then added to the
 # student_list list.
-add_student <- function(id, student_name) 
-{
-  student <- c(id, student_name, "Present");
-  student_list[[length(student_list) + 1]] <- student;
-  cat("Student added successfully.")
-  return(student_list)
-}
+add_student <- function(id, student_name) {
+  student <- c(id, student_name, "Present")
+  student_list[[length(student_list) + 1]] <- student}
 
 # Function to display student attendance with its corresponding
 # ID number, Name, and remark. This includes the current date
